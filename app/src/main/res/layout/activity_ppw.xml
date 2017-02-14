@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_01"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:clickable="true"
+                android:text="popupwindow(view)"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="popupwindow(view,x,y)"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="popupwindow(x,y)"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="popupwindow()"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="popupwindow()"
+                android:visibility="gone" />
+
+            <com.lx.lxdemo.view.ToggleButton
+                android:id="@+id/togglebutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.lx.lxdemo.view.ChangeTextColorView
+                android:id="@+id/changetextcolorView"
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
+
+            <com.lx.lxdemo.view.RoundConernButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
+                android:text="按钮"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <com.lx.lxdemo.view.SideBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+
+</LinearLayout>

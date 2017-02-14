@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">majissa</string>
+    <string name="action_settings">Settings</string>
+    <string name="custom_popupwindow">自定义popupwindow</string>
+    <string name="photoView_title">图片放大开源项目photoView</string>
+    <string name="shape">shape可绘制资源</string>
+    <string name="all_kinds_of_wheel_and_entertaining_diversions_controls">各种轮播和跑马灯控件</string>
+    <string name="call_system_page">调用系统页面</string>
+    <string name="cardView">cardView</string>
+    <string name="can_map_resource_objects">可绘制的资源</string>
+    <string name="cancel">取消</string>
+    <string name="postive">确认</string>
+    <string name="开始服务">开始service</string>
+
+    <string name="permission_to_apply_for_a_call">打电话权限申请</string>
+    <string name="permission_to_apply_for_a_location">定位权限申请</string>
+    <string name="access_to_the_contact">获取联系人</string>
+    <string name="click_start_download">点击下载</string>
+    <string name="application_one">应用一</string>
+    <string name="application_two">应用二</string>
+    <string name="default_icon">默认图标</string>
+    <string name="application_icon_one">图标一</string>
+    <string name="application_icon_two">图标二</string>
+    <string name="hot">热门</string>
+    <string name="the_system_process_list">系统进程列表</string>
+    <string name="list_system_background">系统后台列表</string>
+    <string name="the_largest_amount_is_100_yuan">最大金额为100元</string>
+    <string name="marquee_text">我的跑马灯文字，这是一个跑马灯文字，可以向左跑马，也可以向右跑马，可以向上跑马，也可以向下跑马...</string>
+    <string name="underline_the_sentence_underlined_sentences"><u>加下划线的句子(标记为U的句子)</u> <i>粗体设置</i> <b>粗体设置</b></string>
+    <string name="underline_the_sentence_underlined_sentence2s"><u>第二句加下划线的句子(标记为U的句子)</u> <i>粗体设置</i> <b>粗体设置</b></string>
+</resources>

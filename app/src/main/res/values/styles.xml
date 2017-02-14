@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="LxAppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <!--  AlertDialog的样式 -->
+    <style name="AlertDialogStyle" parent="@android:style/Theme.Holo.Light.Dialog.MinWidth">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        //背景为透明色
+        <item name="android:windowContentOverlay">@null</item>
+        //对话框是否覆盖
+        <item name="android:windowIsFloating">true</item>
+        //对话框是否浮动
+        <item name="android:windowFrame">@null</item>
+        //是否浮窗
+        <item name="android:backgroundDimEnabled">true</item>
+        //true弹出对话框背景变暗， false弹出的对话框背景变亮
+        <item name="android:windowNoTitle">true</item>
+        //无标题
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

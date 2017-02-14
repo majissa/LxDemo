@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:innerRadius="20dp"
+    android:shape="ring"
+    android:thickness="10dp"
+    android:useLevel="false"
+    android:visible="false">
+    <solid android:color="@color/blue" />
+
+    <gradient
+        android:angle="0"
+        android:centerColor="@color/colorAccent"
+        android:endColor="@color/colorPrimaryDark"
+        android:gradientRadius="0.2"
+        android:startColor="@color/yellow"
+        android:type="linear" />//流线型渐变
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/blue"
+        android:dashGap="5dp"
+        android:dashWidth="5dp" />
+</shape>
+

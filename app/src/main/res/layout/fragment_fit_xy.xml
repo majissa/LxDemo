@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:background="@color/c2"
+        android:src="@mipmap/icon_scale_type" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Scale in X and Y independently, so that src matches dst exactly. This may change the aspect ratio of the src.规模在X和Y的独立，使SRC DST完全匹配。这可能会改变src的纵横比" />
+</LinearLayout>

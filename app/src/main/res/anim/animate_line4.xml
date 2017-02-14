@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillBefore="true"
+    android:repeatMode="restart"
+    android:ordering="sequentially">
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M20,120 L180,120"
+        android:valueTo="M20,120 L180,120"
+        android:valueType="pathType"
+
+        app:vc_valueType="pathType" />
+
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M20,120 L180,120"
+        android:valueTo="M20,30 L180,30"
+        android:valueType="pathType"
+
+        app:vc_valueType="pathType" />
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M20,30 L180,30"
+        android:valueTo="M20,30 L180,30"
+        android:valueType="pathType"
+
+
+        app:vc_valueType="pathType" />
+
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M20,30 L180,30"
+        android:valueTo="M20,120 L180,120"
+        android:valueType="pathType"
+
+
+        app:vc_valueType="pathType" />
+    <!--<objectAnimator
+        android:duration="400"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M20,180 L80,180"
+        android:valueTo="M120,180 L180,180"
+        android:valueType="pathType" />
+    <objectAnimator
+        android:duration="400"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M120,180 L180,180"
+        android:valueTo="M120,90 L180,90"
+        android:valueType="pathType" />-->
+</set>

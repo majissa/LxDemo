@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lx.lxdemo">
+
+    <uses-sdk
+        android:minSdkVersion="5"
+        android:targetSdkVersion="21"
+        tools:overrideLibrary="android.support.design,android.support.v7.recyclerview,android.support.v4" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />获取网络信息状态，如当前的网络连接是否有效
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />改变网络状态如是否能联网
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />获取当前WiFi接入的状态以及WLAN热点的信息
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />允许程序写入外部存储，如SD卡上写文件
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />允许程序读取外部存储，如SD卡上读文件
+    <uses-permission android:name="android.permission.INTERNET" />访问网络连接，可能产生GPRS流量
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />安装桌面快捷方式
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />打开设置界面
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />下载管理器
+    <uses-permission android:name="android.permission.GET_TASKS" />下载管理器
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"></uses-permission>
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+    //危险权限
+    <uses-permission android:name="android.permission.CAMERA" />//危险权限，android6.0以上需要动态运行
+    <uses-permission android:name="android.permission.CALL_PHONE" />//危险权限，android6.0以上需要动态运行
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <!-- 读联系人权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 写联系人权限 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <application
+        android:name=".base.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/bird"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".my.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />//用于程序的应用的入口，
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                //用来显示在程序列表的应用图标，如果有两个activity设置了main和launcher则，
+                则程序列表会有两个APP的应用图标，那个activity先打开，那个就是程序的入口了
+            </intent-filter>
+        </activity>
+
+        <activity-alias
+            android:name="test_one_MainActivity"
+            android:enabled="false"
+            android:icon="@mipmap/leader"
+            android:label="@string/application_one"
+            android:targetActivity=".my.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />//用于程序的应用的入口，
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                //用来显示在程序列表的应用图标，如果有两个activity设置了main和launcher则，
+                则程序列表会有两个APP的应用图标，那个activity先打开，那个就是程序的入口了
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="test_two_MainActivity"
+            android:enabled="false"
+            android:icon="@mipmap/taihe"
+            android:label="@string/application_two"
+            android:targetActivity=".my.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />//用于程序的应用的入口，
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                //用来显示在程序列表的应用图标，如果有两个activity设置了main和launcher则，
+                则程序列表会有两个APP的应用图标，那个activity先打开，那个就是程序的入口了
+            </intent-filter>
+        </activity-alias>
+
+        <activity android:name=".activity.PpwActivity" />popupwindow弹窗测试
+        <activity android:name=".activity.TabLayoutActivity" />tabLayout测试
+        <activity android:name=".activity.RoundEdgesActivity" />自己用shape画的按钮形状
+        <activity android:name=".activity.PhotoActivity" />图片放大
+        <activity android:name=".activity.EditTextActivity" />edittext测试
+        <activity android:name=".activity.TouchActivity" />事件分发机制测试
+        <activity android:name=".activity.SwipeLayoutActivity" />google自己的控件
+        <activity android:name=".activity.CardViewActivity" />recyclerVieW控件
+        <activity android:name=".activity.CoordinatorLayoutActivity" />Coordinator测试
+        <activity android:name=".activity.SquareRelativeLayoutActivity" />正方形布局
+        <activity android:name=".activity.ScaleTypeActivity" />图片scaleType测试
+        <activity android:name=".activity.SpannableStringActivity" />spannableString测试
+        <activity android:name=".activity.SystemActivity" />通讯录页面
+        <activity
+            android:name=".activity.ActivityTaskActivity"
+            android:launchMode="standard" />standard模式
+        <activity
+            android:name=".activity.SingleTopActivity"
+            android:launchMode="singleTop" />standard模式
+        <activity
+            android:name=".activity.SingleTaskActivity"
+            android:launchMode="singleTask" />standard模式
+        <activity
+            android:name=".activity.SingleInstanceActivity"
+            android:launchMode="singleInstance" />standard模式
+        <activity android:name=".activity.SinglePhotoViewActivity" />单个图片放大页面
+        <activity android:name=".activity.ViewPagerPhotoActivity" />多个图片放大界面
+        <activity android:name=".activity.LoadApkActivity" />下载apk
+        <activity android:name=".activity.NotificationActivity" />通知页面
+        <activity android:name=".activity.WebViewActivity" />本地调用系统的页面
+        <activity android:name=".activity.TestWebViewActivity" />
+        <activity android:name=".activity.ActivityServiceActivity" />活动服务管理页面
+        <activity android:name=".activity.VarietyIconActivity" />更换icon的活动
+        <activity android:name=".activity.AddViewTestActivity" />addView页面
+        <activity android:name=".activity.VectorDrawableActivity" />svg图片
+        <activity android:name=".activity.MarqueeViewActivity" />跑马灯页面
+        <activity android:name=".activity.PushTestActivity" />推送测试页面
+        <activity android:name=".activity.PushTest02Activity" />推送测试第二个页面
+        <activity android:name=".activity.CanMapResourceObjectsActivity" />//可绘制资源
+        <activity android:name=".activity.ShapeActivity" />//shape的例子测试
+        <activity android:name=".activity.ClipDrawableActivity" />可剪切的资源
+        <activity android:name=".activity.InsertDrawableActivity" />插入资源
+        <activity android:name=".activity.TransitionDrawableActivity" />变化资源
+        <activity android:name=".activity.PermissionActivity" />权限测试
+        <activity android:name=".activity.ImageViewActivity" />
+        <activity android:name=".activity.CustomWidgetActivity" />自定义控件页面
+        <activity android:name=".activity.ExpandleRecycleViewActivity" />可扩展的RecycleView
+
+        <service
+            android:name=".service.TestService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".receiver.JumpActivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!--Required 用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!--Required 用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!--Required 用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!--Required 用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!--Optional 用户接受Rich Push Javascript 回调函数的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

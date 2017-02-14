@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/c2"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_scale_type" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/c2"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_scale_type" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding)尺度的图像均匀地（保持图像的纵横比），使图像的两个尺寸（宽度和高度）将等于或大于视图的相应尺寸（减去填充）。"
+        android:textSize="20sp" />
+</LinearLayout>

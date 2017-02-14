@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportHeight="200"
+    android:viewportWidth="200"
+
+    app:vc_viewportHeight="200"
+    app:vc_viewportWidth="200">
+    <path
+        android:name="rectangle"
+        android:pathData="M20,30 L100,30 M100,30 L100,90 M100,90,L20,90 L20,90 M20,90 L20,30"
+        android:strokeColor="@color/black"
+        android:strokeWidth="1"
+
+
+        app:vc_pathData="M20,30 L100,30 M100,30 L100,90 M100,90,L20,90 L20,90 M20,90 L20,30"
+        app:vc_strokeColor="@color/black"
+        app:vc_strokeWidth="1" />
+    <path
+        android:name="line1"
+        android:pathData="M120,30 L180,30"
+        android:strokeColor="@color/black"
+        android:strokeWidth="1"
+
+        app:vc_pathData="M120,30 L180,30"
+        app:vc_strokeColor="@color/black"
+        app:vc_strokeWidth="1" />
+    <path
+        android:name="line2"
+        android:pathData="M120,60 L180,60"
+        android:strokeColor="@color/black"
+        android:strokeWidth="1"
+
+        app:vc_pathData="M120,60 L180,60"
+        app:vc_strokeColor="@color/black"
+        app:vc_strokeWidth="1" />
+    <path
+        android:name="line3"
+        android:pathData="M120,90 L180,90"
+        android:strokeColor="@color/black"
+        android:strokeWidth="1"
+
+        app:vc_pathData="M120,90 L180,90"
+        app:vc_strokeColor="@color/black"
+        app:vc_strokeWidth="1" />
+
+    <path
+        android:name="line4"
+        android:pathData="M20,120 L180,120"
+        android:strokeColor="@color/black"
+        android:strokeWidth="1"
+
+        app:vc_pathData="M20,120 L180,120"
+        app:vc_strokeColor="@color/black"
+        app:vc_strokeWidth="1" />
+    <path
+        android:name="line5"
+        android:pathData="M20,150 L180,150"
+        android:strokeColor="@color/black"
+        android:strokeWidth="1"
+
+        app:vc_pathData="M20,150 L180,150"
+        app:vc_strokeColor="@color/black"
+        app:vc_strokeWidth="1"
+
+        />
+    <path
+        android:name="line6"
+        android:pathData="M20,180 L180,180"
+        android:strokeColor="@color/black"
+        android:strokeWidth="1"
+
+        app:vc_pathData="M20,180 L180,180"
+        app:vc_strokeColor="@color/black"
+        app:vc_strokeWidth="1" />
+</vector>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lx-Library</string>
+
+    <string name="no_app_to_open">没有对应的软件可以打开！</string>
+</resources>

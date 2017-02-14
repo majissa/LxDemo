@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lx.lxlibrary">
+
+    <uses-sdk tools:overrideLibrary="android.support.design" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name=".activity.PhotoViewActivity"
+            android:theme="@style/translucent" />
+        <activity
+            android:name=".activity.DragPhotoActivity"
+            android:theme="@style/translucent">
+
+        </activity>
+    </application>
+
+</manifest>

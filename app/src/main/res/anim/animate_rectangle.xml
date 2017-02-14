@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:shareInterpolator="false"
+    android:ordering="sequentially">
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M20,30 L100,30 M100,30 L100,90 M100,90,L20,90 M20,90 L20,30z"
+        android:valueTo="M100,30 L180,30 M180,30 L180,90 M180,90 L100,90 M100,90 L100,30z"
+        android:valueType="pathType"
+        app:vc_valueType="pathType" />
+
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M100,30 L180,30 M180,30 L180,90 M180,90 L100,90 M100,90 L100,30z"
+        android:valueTo="M100,120 L180,120 M180,120 L180,180 M180,180 L100,180 M100,180 L100,120z"
+        android:valueType="pathType"
+        app:vc_valueType="pathType" />
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M100,120 L180,120 M180,120 L180,180 M180,180 L100,180 M100,180 L100,120z"
+        android:valueTo="M20,120 L100,120 M100,120 L100,180 M100,180 L20,180 M20,180 L20,120z"
+        android:valueType="pathType"
+
+        app:vc_valueType="pathType"
+
+        />
+    <objectAnimator
+        android:duration="1000"
+        android:interpolator="@android:interpolator/decelerate_cubic"
+        android:propertyName="pathData"
+        android:valueFrom="M20,120 L100,120 M100,120 L100,180 M100,180 L20,180 M20,180 L20,120z"
+        android:valueTo="M20,30 L100,30 M100,30 L100,90 M100,90,L20,90 M20,90 L20,30z"
+        android:valueType="pathType"
+
+        app:vc_valueType="pathType" />
+</set>

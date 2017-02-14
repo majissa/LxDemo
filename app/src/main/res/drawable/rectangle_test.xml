@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--定义填充的颜色值-->
+    <corners
+        android:bottomLeftRadius="8dp"
+        android:bottomRightRadius="8dp"
+        android:radius="8dp"
+        android:topLeftRadius="8dp"
+        android:topRightRadius="8dp" />
+
+    <!--angle为渐变的角度，0为左到右，90为从上到下，必须是45的倍数，默认为0
+        centerX 浮点型。渐变中心的相对 X 轴位置
+        centerY 浮点型。渐变中心的相对 Y 轴位置
+        android:type "linear"	线性渐变。这是默认值。
+                      "radial"	径向渐变。起始颜色为中心颜色。
+                      "sweep"	流线型渐变。
+    -->
+    <gradient
+        android:angle="90"
+        android:centerColor="@color/colorAccent"
+        android:centerX="0.2"
+        android:centerY="0.2"
+        android:endColor="@color/colorPrimaryDark"
+        android:startColor="@color/yellow"
+        android:type="sweep" />//流线型渐变
+
+    <corners android:radius="3dp" />
+</shape>
+

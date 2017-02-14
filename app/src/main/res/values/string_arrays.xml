@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="demo_list">
+        <item>自定义popupwindow</item>
+        <item>TabLayout</item>
+        <item>可绘制的资源</item>
+        <item>图片查看</item>
+        <item>editText测试</item>
+        <item>时间分发机制</item>
+        <item>SwipeLayout</item>
+        <item>CardView</item>
+        <item>CoordinatorLayout测试</item>
+        <item>SquareRelativeLayout正方形布局</item>
+        <item>ImageView的ScaleType</item>
+        <item>SpannableString...</item>
+        <item>Activity的四种启动模式</item>
+        <item>调用系统的页面</item>
+        <item>下载apk</item>
+        <item>webView调用本地代码</item>
+        <item>测试webView调用本地代码</item>
+        <item>更换Icon图标</item>
+        <item>获取系统各种进程与后台内容列表</item>
+        <item>addView测试</item>
+        <item>vectorDrawable</item>
+        <item>各种轮播和跑马灯</item>
+        <item>android6.0以上(API23)以上的动态权限测试</item>
+        <item>自定义控件</item>
+        <item>可扩展的RecycleView</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+        <item>to be continued...</item>
+    </string-array>
+
+    <string-array name="photoView_list">
+        <item>单个photoView</item>
+        <item>ViewPager的photoView</item>
+        <item>ViewPager的photoView(放大张开与缩小关闭)</item>
+        <item>可下拉拖拽的DragPhotoView</item>
+    </string-array>
+
+    <string-array name="can_map_resource_objects">
+        <item>形状可绘制对象(shape)</item>
+        <item>位图文件(BitmapDrawable)</item>
+        <item>九宫格文件(.9.PNG)</item>
+        <item>图层列表(LayerDrawable)</item>
+        <item>状态列表(StateListDrawable)</item>
+        <item>级别列表</item>
+        <item>转换可绘制对象(TransitionDrawable)</item>
+        <item>剪裁可绘制对象(可用于显示进度条)</item>
+        <item>缩放可绘制对象(ClipDrawble)</item>
+        <item>动画资源(AnimalDrawble)</item>
+        <item>插入资源(InsertDrawble)</item>
+    </string-array>
+
+
+</resources>

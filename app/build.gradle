@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+def cfg = rootProject.ext.configuration // 配置
+def libs = rootProject.ext.libraries // 库
+
+android {
+    compileSdkVersion cfg.compileVersion
+    buildToolsVersion cfg.buildToolsVersion
+
+    defaultConfig {
+        applicationId cfg.package
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdk
+        versionCode cfg.version_code
+        versionName cfg.version_name
+        vectorDrawables.useSupportLibrary = true
+        generatedDensities = ['hdpi', 'xhdpi']  // 默认只生成 hdpi 和 xhdpi的png图
+    }
+
+    productFlavors {
+        mdpi{
+            generatedDensities = ['mdpi'] // 还可以单独指定
+        }
+    }
+
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.github.chrisbanes.photoview:library:1.2.4'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile project(':ptr-lib')
+    compile project(':lx-library')
+    compile project(':jpush')
+}

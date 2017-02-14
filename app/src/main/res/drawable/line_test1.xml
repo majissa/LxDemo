@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+
+    <gradient
+        android:angle="0"
+        android:centerColor="@color/colorAccent"
+        android:endColor="@color/colorPrimaryDark"
+        android:startColor="@color/yellow"
+        android:type="sweep" />//流线型渐变
+
+    <stroke
+        android:width="10dp"
+        android:color="@color/yellow"
+        android:dashGap="50dp"
+        android:dashWidth="10dp" />
+
+</shape>
+
