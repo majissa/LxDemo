@@ -37,7 +37,7 @@ public class ExpandleRecycleViewActivity extends BaseActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new LinearLayoutDecoration(context));
+        recyclerView.addItemDecoration(new LinearLayoutDecoration.Builder(context).build());
         adapter = new ExpandViewAdapter(context);
         adapter.setOnClickListener(this);
         adapter.setOnItemClickListener(new BaseRecyclerViewAdapter.ItemOnClickListener<ExpandViewBean>() {

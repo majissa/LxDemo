@@ -39,7 +39,7 @@ public class CardViewActivity extends BaseActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new LinearLayoutDecoration(context));
+        recyclerView.addItemDecoration(new LinearLayoutDecoration.Builder(context).build());
         recyclerView.setHasFixedSize(true);
         cardViewAdapter = new CardViewAdapter(context);
         recyclerView.setAdapter(cardViewAdapter);

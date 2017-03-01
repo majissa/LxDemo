@@ -15,6 +15,7 @@ import com.lx.lxdemo.bean.NewsBean;
 import com.lx.lxdemo.constant.HttpConstant;
 import com.lx.lxlibrary.activity.BaseActivity;
 import com.lx.lxlibrary.adapter.BaseRecyclerViewAdapter;
+import com.lx.lxlibrary.bean.NameBean;
 import com.lx.lxlibrary.decoration.LinearLayoutDecoration;
 import com.lx.lxlibrary.utlis.ToastUtils;
 import com.lzy.okhttputils.OkHttpUtils;
@@ -35,6 +36,7 @@ public class SwipeLayoutActivity extends BaseActivity {
     private SwipeRefreshLayout swipefreshLayout;
     private NewsAdapter adapter;
     private RecyclerView recyclerView;
+    private List<NameBean> nameBeens;
 
     @Override
     protected void initView(View view) {
@@ -42,14 +44,19 @@ public class SwipeLayoutActivity extends BaseActivity {
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new LinearLayoutDecoration(context));
+        recyclerView.addItemDecoration(new LinearLayoutDecoration.Builder(context).drawable(R.drawable.rectangle_gridview_line).build());
+
         adapter = new NewsAdapter(context);
+//        View headView = adapter.inflateHeadView(R.layout.include_top_title);
+////        headView.setVisibility(View.GONE);
+////        adapter.getHeadFrameLayout().setVisibility(View.GONE);
         adapter.setOnClickListener(this);
         adapter.setOnItemClickListener(new BaseRecyclerViewAdapter.ItemOnClickListener<NewsBean.Result.Data>() {
             @Override
-            public void onItemClick(NewsBean.Result.Data bean,View view, int position) {
+            public void onItemClick(NewsBean.Result.Data bean, View view, int position) {
 
             }
         });
@@ -65,14 +72,15 @@ public class SwipeLayoutActivity extends BaseActivity {
         swipefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                requestNews();
+//                requestNews();
             }
         });
     }
 
     @Override
     protected void initValue() {
-
+        setTopGone();
+        requestNews();
     }
 
     /**
@@ -98,7 +106,26 @@ public class SwipeLayoutActivity extends BaseActivity {
                             List<NewsBean.Result.Data> data = newsBean.getResult().getData();
                             if (data != null && data.size() > 0) {
                                 adapter.setList(data);
+                                setPullAction(data);
+//                                recyclerView.addItemDecoration(new SectionDecoration(nameBeens, context, R.drawable.rectangle_gridview_line,new SectionDecoration.DecorationCallback() {
+//                                    @Override
+//                                    public String getGroupId(int position) {
+//                                        if (nameBeens.get(position).getName() != null) {
+//                                            return nameBeens.get(position).getName();
+//                                        }
+//                                        return "-1";
+//                                    }
+//
+//                                    @Override
+//                                    public String getGroupFirstLine(int position) {
+//                                        if (nameBeens.get(position).getName() != null) {
+//                                            return nameBeens.get(position).getName();
+//                                        }
+//                                        return "";
+//                                    }
+//                                }));
                             }
+                            recyclerView.setAdapter(adapter);
                         } else {
                             ToastUtils.longShow(newsBean.getReason());
                         }
@@ -122,6 +149,16 @@ public class SwipeLayoutActivity extends BaseActivity {
 //                jumpToDragPhotoViewActivity((ImageView) v, imagePath, R.mipmap.bird);
                 jumpToPhotoViewActivity((ImageView) v, list, R.mipmap.bird, 0);
                 break;
+        }
+    }
+
+    private void setPullAction(List<NewsBean.Result.Data> list) {
+        nameBeens = new ArrayList<>();
+        for (NewsBean.Result.Data data : list) {
+            NameBean nameBean = new NameBean();
+            String title = data.getAuthor_name();
+            nameBean.setName(title);
+            nameBeens.add(nameBean);
         }
     }
 }

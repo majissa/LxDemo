@@ -37,7 +37,7 @@ public class ImageViewActivity extends BaseActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new LinearLayoutDecoration(context));
+        recyclerView.addItemDecoration(new LinearLayoutDecoration.Builder(context).build());
         recyclerView.setHasFixedSize(true);
         imageViewAdapter = new ImageViewAdapter(context);
         imageViewAdapter.setOnClickListener(this);

@@ -1,15 +1,17 @@
 package com.lx.lxdemo.my;
 
 import android.content.Intent;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
-import android.widget.GridView;
 
 import com.lx.lxdemo.R;
 import com.lx.lxdemo.activity.ActivityServiceActivity;
 import com.lx.lxdemo.activity.ActivityTaskActivity;
 import com.lx.lxdemo.activity.AddViewTestActivity;
 import com.lx.lxdemo.activity.CanMapResourceObjectsActivity;
+import com.lx.lxdemo.activity.CardViewActivity;
 import com.lx.lxdemo.activity.CoordinatorLayoutActivity;
 import com.lx.lxdemo.activity.CustomWidgetActivity;
 import com.lx.lxdemo.activity.EditTextActivity;
@@ -19,7 +21,6 @@ import com.lx.lxdemo.activity.MarqueeViewActivity;
 import com.lx.lxdemo.activity.PermissionActivity;
 import com.lx.lxdemo.activity.PhotoActivity;
 import com.lx.lxdemo.activity.PpwActivity;
-import com.lx.lxdemo.activity.CardViewActivity;
 import com.lx.lxdemo.activity.ScaleTypeActivity;
 import com.lx.lxdemo.activity.SpannableStringActivity;
 import com.lx.lxdemo.activity.SquareRelativeLayoutActivity;
@@ -31,16 +32,17 @@ import com.lx.lxdemo.activity.TouchActivity;
 import com.lx.lxdemo.activity.VarietyIconActivity;
 import com.lx.lxdemo.activity.VectorDrawableActivity;
 import com.lx.lxdemo.activity.WebViewActivity;
-import com.lx.lxdemo.adapter.TestBaseAdapter;
+import com.lx.lxdemo.adapter.MainAdapter;
 import com.lx.lxlibrary.activity.BaseActivity;
 import com.lx.lxlibrary.activity.BaseWebViewActivity;
-import com.lx.lxlibrary.adapter.AbsBaseAdapter;
+import com.lx.lxlibrary.adapter.BaseRecyclerViewAdapter;
+import com.lx.lxlibrary.decoration.GridLayoutDecoration;
 import com.lx.lxlibrary.utlis.ToastUtils;
 
 import java.util.Arrays;
 
 public class MainActivity extends BaseActivity {
-    private GridView gv_list;
+    private RecyclerView recyclerView;
     private SparseArray<Class> activityMap;
 
     @Override
@@ -50,7 +52,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView(View view) {
-        gv_list = (GridView) view.findViewById(R.id.gv_list);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
     }
 
     @Override
@@ -65,11 +67,18 @@ public class MainActivity extends BaseActivity {
         setTitle(R.string.app_name);
         setTopGone();
         setRightImageViewGone();
-        TestBaseAdapter textadapter = new TestBaseAdapter(context);
-        textadapter.setonClickListener(this);
-        textadapter.setonItemClickListener(new AbsBaseAdapter.OnItemClickListener<String>() {
+
+        recyclerView.setHasFixedSize(true);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 3);
+//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.addItemDecoration(new GridLayoutDecoration.Builder(context).drawable(R.drawable.rectangle_gridview_line).build());
+
+        MainAdapter mainAdapter = new MainAdapter(context);
+        mainAdapter.setOnClickListener(this);
+        mainAdapter.setOnItemClickListener(new BaseRecyclerViewAdapter.ItemOnClickListener() {
             @Override
-            public void itemClick(String o, View v, int position) {
+            public void onItemClick(Object o, View view, int position) {
                 if (activityMap.get(position) != null) {
                     switch (position) {
                         case 16:
@@ -87,8 +96,8 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
-        textadapter.setList(Arrays.asList(getResources().getStringArray(R.array.demo_list)));
-        gv_list.setAdapter(textadapter);
+        mainAdapter.setList(Arrays.asList(getResources().getStringArray(R.array.demo_list)));
+        recyclerView.setAdapter(mainAdapter);
     }
 
 
