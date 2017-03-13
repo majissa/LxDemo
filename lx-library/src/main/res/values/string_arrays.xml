@@ -1,24 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="citys">
-        <item>angle</item>
-        <item>baby</item>
-        <item>Cc</item>
-        <item>de</item>
-        <item>dddd</item>
-        <item>eeee</item>
-        <item>dddd</item>
-        <item>eeeee</item>
-        <item>fffff</item>
-        <item>ffffffddff</item>
-        <item>gggggghhgg</item>
-        <item>gggggghhgg</item>
-        <item>hhh</item>
-        <item>hjjj</item>
-        <item>ijjjj</item>
-        <item>ijjjj</item>
-        <item>kjj</item>
-        <item>kiikiki</item>
-    </string-array>
 
 </resources>

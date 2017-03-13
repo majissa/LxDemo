@@ -2,9 +2,10 @@ package com.lx.lxdemo.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
+
+import com.lx.lxlibrary.log.Logger;
 
 /**
  * 创建人：李响
@@ -12,7 +13,7 @@ import android.widget.LinearLayout;
  * 描述：
  */
 public class OutLayout extends LinearLayout {
-    String TAG = "LIXIANG";
+    String TAG = "touch";
 
     public OutLayout(Context context) {
         super(context);
@@ -27,46 +28,46 @@ public class OutLayout extends LinearLayout {
     }
 
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.d(TAG, "OutLayout dispatchTouchEvent");
-        switch (ev.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                Log.d(TAG, "OutLayout dispatchTouchEvent---> ACTION_DOWN  ");
-                break;
-
-            case MotionEvent.ACTION_UP:
-                Log.d(TAG, "OutLayout dispatchTouchEvent---> ACTION_UP  ");
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-                Log.d(TAG, "OutLayout dispatchTouchEvent---> ACTION_MOVE  ");
-                break;
-        }
-
-        return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        Log.d(TAG, "OutLayout onTouchEvent");
-
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                Log.d(TAG, "OutLayout onTouchEvent---> ACTION_DOWN  ");
-                break;
-
-            case MotionEvent.ACTION_UP:
-                Log.d(TAG, "OutLayout onTouchEvent---> ACTION_UP  ");
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-                Log.d(TAG, "OutLayout onTouchEvent---> ACTION_MOVE  ");
-                break;
-        }
-
-        return true;
-    }
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        Log.d(TAG, "OutLayout dispatchTouchEvent");
+//        switch (ev.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                Log.d(TAG, "OutLayout dispatchTouchEvent---> ACTION_DOWN  ");
+//                break;
+//
+//            case MotionEvent.ACTION_UP:
+//                Log.d(TAG, "OutLayout dispatchTouchEvent---> ACTION_UP  ");
+//                break;
+//
+//            case MotionEvent.ACTION_MOVE:
+//                Log.d(TAG, "OutLayout dispatchTouchEvent---> ACTION_MOVE  ");
+//                break;
+//        }
+//
+//        return super.dispatchTouchEvent(ev);
+//    }
+//
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        Log.d(TAG, "OutLayout onTouchEvent");
+//
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                Log.d(TAG, "OutLayout onTouchEvent---> ACTION_DOWN  ");
+//                break;
+//
+//            case MotionEvent.ACTION_UP:
+//                Log.d(TAG, "OutLayout onTouchEvent---> ACTION_UP  ");
+//                break;
+//
+//            case MotionEvent.ACTION_MOVE:
+//                Log.d(TAG, "OutLayout onTouchEvent---> ACTION_MOVE  ");
+//                break;
+//        }
+//
+//        return true;
+//    }
   /* 1. You will receive the down event here.
    2. The down event will be handled either by a child of this view group, or given to your own onTouchEvent() method to handle; this means you should implement onTouchEvent() to return true, so you will continue to see the rest of the gesture (instead of looking for a parent view to handle it). Also, by returning true from onTouchEvent(), you will not receive any following events in onInterceptTouchEvent() and all touch processing must happen in onTouchEvent() like normal.
    3. For as long as you return false from this function, each following event (up to and including the final up) will be delivered first here and then to the target's onTouchEvent().
@@ -79,10 +80,41 @@ public class OutLayout extends LinearLayout {
 
    */
 
+//    @Override
+//    public boolean onInterceptTouchEvent(MotionEvent ev) {
+//        Log.d(TAG, "OutLayout onInterceptTouchEvent");
+//        return false;
+//
+//    }
+
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Logger.d(TAG, "viewgroup dispatchTouchEvent");
+                break;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Logger.d(TAG, "viewgroup onTouchEvent");
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.d(TAG, "OutLayout onInterceptTouchEvent");
-        return false;
-
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Logger.d(TAG, "viewgroup onInterceptTouchEvent");
+                break;
+        }
+        return super.onInterceptTouchEvent(ev);
     }
 }

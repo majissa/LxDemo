@@ -1,11 +1,11 @@
 package com.lx.lxdemo.activity;
 
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.lx.lxdemo.R;
 import com.lx.lxlibrary.activity.BaseActivity;
+import com.lx.lxlibrary.log.Logger;
 
 /**
  * 创建人：李响
@@ -15,8 +15,7 @@ import com.lx.lxlibrary.activity.BaseActivity;
 
 
 /*
-网址：http://mp.weixin.qq.com/s?__biz=MjM5NDAxNTY4MA==&mid=2649396652&idx=1&sn=74f333f821f988c9b5270da326f87c03&scene=0#wechat_redirect
-
+网址： http://www.jianshu.com/p/e99b5e8bd67b
 
         1、在哪个View的onTouchEvent 返回true，那么ACTION_MOVE和ACTION_UP的事件从上往下传到这个View后就不再往下传递了，
         而直接传给自己的onTouchEvent 并结束本次事件传递过程。
@@ -55,7 +54,7 @@ import com.lx.lxlibrary.activity.BaseActivity;
 
 public class TouchActivity extends BaseActivity {
 
-    String TAG = "LIXIANG";
+    String TAG = "touch";
 
     @Override
     protected void initView(View view) {
@@ -84,7 +83,27 @@ public class TouchActivity extends BaseActivity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.d(TAG, "TouchActivity dispatchTouchEvent: ");
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Logger.d(TAG, "activity dispatchTouchEvent");
+                break;
+        }
         return super.dispatchTouchEvent(ev);
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Logger.d(TAG, "activity onTouchEvent");
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    //    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        Log.d(TAG, "TouchActivity dispatchTouchEvent: ");
+//        return super.dispatchTouchEvent(ev);
+//    }
 }

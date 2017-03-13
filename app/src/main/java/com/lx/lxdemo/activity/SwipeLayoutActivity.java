@@ -15,8 +15,8 @@ import com.lx.lxdemo.bean.NewsBean;
 import com.lx.lxdemo.constant.HttpConstant;
 import com.lx.lxlibrary.activity.BaseActivity;
 import com.lx.lxlibrary.adapter.BaseRecyclerViewAdapter;
-import com.lx.lxlibrary.bean.NameBean;
-import com.lx.lxlibrary.decoration.LinearLayoutDecoration;
+import com.lx.lxlibrary.bean.SortModel;
+import com.lx.lxlibrary.decoration.SectionDecoration;
 import com.lx.lxlibrary.utlis.ToastUtils;
 import com.lzy.okhttputils.OkHttpUtils;
 
@@ -36,7 +36,7 @@ public class SwipeLayoutActivity extends BaseActivity {
     private SwipeRefreshLayout swipefreshLayout;
     private NewsAdapter adapter;
     private RecyclerView recyclerView;
-    private List<NameBean> nameBeens;
+    private List<SortModel> nameBeens;
 
     @Override
     protected void initView(View view) {
@@ -47,10 +47,10 @@ public class SwipeLayoutActivity extends BaseActivity {
 
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new LinearLayoutDecoration.Builder(context).drawable(R.drawable.rectangle_gridview_line).build());
+//        recyclerView.addItemDecoration(new LinearLayoutDecoration.Builder(context).drawable(R.drawable.rectangle_gridview_line).build());
 
         adapter = new NewsAdapter(context);
-//        View headView = adapter.inflateHeadView(R.layout.include_top_title);
+        View headView = adapter.inflateHeadView(R.layout.adapetr_running_task_app);
 ////        headView.setVisibility(View.GONE);
 ////        adapter.getHeadFrameLayout().setVisibility(View.GONE);
         adapter.setOnClickListener(this);
@@ -124,6 +124,25 @@ public class SwipeLayoutActivity extends BaseActivity {
 //                                        return "";
 //                                    }
 //                                }));
+//                            }
+                                RecyclerView.ItemDecoration itemDecoration = new SectionDecoration.Builder(context, nameBeens, new SectionDecoration.DecorationCallback() {
+                                    @Override
+                                    public String getGroupId(int position) {
+                                        if (nameBeens.get(position).getName() != null) {
+                                            return nameBeens.get(position).getName();
+                                        }
+                                        return "-1";
+                                    }
+
+                                    @Override
+                                    public String getGroupFirstLine(int position) {
+                                        if (nameBeens.get(position).getName() != null) {
+                                            return nameBeens.get(position).getName();
+                                        }
+                                        return "";
+                                    }
+                                }).drawable(R.drawable.rectangle_gridview_line).barColor(R.color.colorAccent).barHeight(R.dimen.sectioned_top).textColor(R.color.blue).textAlignBottom(R.dimen.sectioned_alignBottom).build();
+                                recyclerView.addItemDecoration(itemDecoration);
                             }
                             recyclerView.setAdapter(adapter);
                         } else {
@@ -155,10 +174,10 @@ public class SwipeLayoutActivity extends BaseActivity {
     private void setPullAction(List<NewsBean.Result.Data> list) {
         nameBeens = new ArrayList<>();
         for (NewsBean.Result.Data data : list) {
-            NameBean nameBean = new NameBean();
+            SortModel sortModel = new SortModel();
             String title = data.getAuthor_name();
-            nameBean.setName(title);
-            nameBeens.add(nameBean);
+            sortModel.setName(title);
+            nameBeens.add(sortModel);
         }
     }
 }

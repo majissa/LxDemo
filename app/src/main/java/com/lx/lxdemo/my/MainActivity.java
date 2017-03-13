@@ -1,6 +1,8 @@
 package com.lx.lxdemo.my;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
@@ -22,6 +24,7 @@ import com.lx.lxdemo.activity.PermissionActivity;
 import com.lx.lxdemo.activity.PhotoActivity;
 import com.lx.lxdemo.activity.PpwActivity;
 import com.lx.lxdemo.activity.ScaleTypeActivity;
+import com.lx.lxdemo.activity.SelectCityActivity;
 import com.lx.lxdemo.activity.SpannableStringActivity;
 import com.lx.lxdemo.activity.SquareRelativeLayoutActivity;
 import com.lx.lxdemo.activity.SwipeLayoutActivity;
@@ -33,6 +36,7 @@ import com.lx.lxdemo.activity.VarietyIconActivity;
 import com.lx.lxdemo.activity.VectorDrawableActivity;
 import com.lx.lxdemo.activity.WebViewActivity;
 import com.lx.lxdemo.adapter.MainAdapter;
+import com.lx.lxdemo.common.Logger;
 import com.lx.lxlibrary.activity.BaseActivity;
 import com.lx.lxlibrary.activity.BaseWebViewActivity;
 import com.lx.lxlibrary.adapter.BaseRecyclerViewAdapter;
@@ -62,6 +66,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initValue() {
+        if (saveInstanceState != null) {
+            String saveInstance = saveInstanceState.getString("save");
+            Logger.dLi(saveInstance);
+        }
         putActivityList();
         setTopVisibility();
         setTitle(R.string.app_name);
@@ -90,6 +98,7 @@ public class MainActivity extends BaseActivity {
                             startActivity(new Intent(context, activityMap.get(position)));
                             break;
                     }
+//                    finish();
                     overridePendingTransition(0, 0);
                 } else {
                     ToastUtils.shortShow("to be contnue...");
@@ -125,6 +134,33 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("save", "main_lixiang");
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            com.lx.lxlibrary.log.Logger.dLi(savedInstanceState.getString("save"));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
+
     private void putActivityList() {
         activityMap = new SparseArray<Class>();
         activityMap.put(0, PpwActivity.class);
@@ -150,8 +186,8 @@ public class MainActivity extends BaseActivity {
         activityMap.put(20, VectorDrawableActivity.class);
         activityMap.put(21, MarqueeViewActivity.class);
         activityMap.put(22, PermissionActivity.class);//跑马灯控件
-        activityMap.put(23, PermissionActivity.class);
         activityMap.put(23, CustomWidgetActivity.class);//自定义控件页面
         activityMap.put(24, ExpandleRecycleViewActivity.class);//
+        activityMap.put(25, SelectCityActivity.class);//
     }
 }

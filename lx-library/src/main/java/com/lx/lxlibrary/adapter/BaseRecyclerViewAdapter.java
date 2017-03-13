@@ -39,13 +39,13 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
 
     //如果第三参数为true,以headFrameLayout为根布局，如果为false的话则以xml的文件的根布局
     public View inflateHeadView(@LayoutRes int headViewRes) {
-        View headView = LayoutInflater.from(context).inflate(headViewRes, headFrameLayout, true);
+        View headView = LayoutInflater.from(context).inflate(headViewRes, headFrameLayout, false);
         headFrameLayout.addView(headView);
         return headView;
     }
 
     public View inflateFootView(@LayoutRes int footViewRes) {
-        View footView = LayoutInflater.from(context).inflate(footViewRes, footFrameLayout, true);
+        View footView = LayoutInflater.from(context).inflate(footViewRes, footFrameLayout, false);
         footFrameLayout.addView(footView);
         return footView;
     }

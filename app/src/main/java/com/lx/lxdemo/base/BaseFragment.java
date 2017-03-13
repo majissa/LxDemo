@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lx.lxlibrary.activity.BaseActivity;
+import com.lzy.okhttputils.OkHttpUtils;
 
 /**
  * 创建人：LX
@@ -40,4 +41,10 @@ public abstract class BaseFragment extends Fragment {
     protected abstract void setListener();
 
     protected abstract void initDatas();
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        OkHttpUtils.getInstance().cancelTag(this);
+    }
 }

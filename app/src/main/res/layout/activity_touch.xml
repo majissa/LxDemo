@@ -5,23 +5,20 @@
     android:orientation="vertical">
 
     <com.lx.lxdemo.view.OutLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/blue"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <com.lx.lxdemo.view.IntLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.lx.lxdemo.view.MyView
-                android:id="@+id/myView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:text="kaishi" />
-
-        </com.lx.lxdemo.view.IntLayout>
+        <com.lx.lxdemo.view.MyView
+            android:id="@+id/myView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/black"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="kaishi" />
 
     </com.lx.lxdemo.view.OutLayout>
 

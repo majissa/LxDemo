@@ -132,6 +132,7 @@
         <activity android:name=".activity.ImageViewActivity" />
         <activity android:name=".activity.CustomWidgetActivity" />自定义控件页面
         <activity android:name=".activity.ExpandleRecycleViewActivity" />可扩展的RecycleView
+        <activity android:name=".activity.SelectCityActivity" />可扩展的RecycleView
 
         <service
             android:name=".service.TestService"

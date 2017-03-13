@@ -29,17 +29,17 @@ public class NewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Result.Data> {
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent) {
-        return new NewsAdapter.TestItemViewHolder(Inflate(R.layout.adapter_news, parent));
+        return new ItemViewHolder(Inflate(R.layout.adapter_news, parent));
     }
 
-    class TestItemViewHolder extends BaseitemViewHolder {
+    class ItemViewHolder extends BaseitemViewHolder {
 
         private TextView tv_title;
         private TextView tv_auther;
         private TextView tv_date;
         private ImageView iv_pic;
 
-        public TestItemViewHolder(View itemView) {
+        public ItemViewHolder(View itemView) {
             super(itemView);
             tv_title = (TextView) itemView.findViewById(R.id.tv_title);
             tv_auther = (TextView) itemView.findViewById(R.id.tv_auther);

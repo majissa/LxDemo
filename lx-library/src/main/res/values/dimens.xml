@@ -13,5 +13,5 @@
     <dimen name="text_size_16">16sp</dimen>
     <dimen name="text_size_20">20sp</dimen>
     <dimen name="sectioned_top">20dp</dimen>
-    <dimen name="sectioned_alignBottom">2dp</dimen>
+    <dimen name="sectioned_alignBottom">4dp</dimen>
 </resources>

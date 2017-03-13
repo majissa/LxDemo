@@ -2,4 +2,7 @@
     <string name="app_name">Lx-Library</string>
 
     <string name="no_app_to_open">没有对应的软件可以打开！</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <string name="forget_password">忘记密码</string>
 </resources>

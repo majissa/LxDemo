@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import com.lx.lxlibrary.R;
 import com.lx.lxlibrary.interfaces.IGlobalReceiver;
 import com.lx.lxlibrary.utlis.ImageUtil;
+import com.lzy.okhttputils.OkHttpUtils;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,7 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements View.
     private FrameLayout wrapperFrameLayout;//内容布局
     private View wrapperView;
     private FrameLayout.LayoutParams wrapperParams;
+    protected Bundle saveInstanceState;
 
     /**
      * UI布局如果填写在这个函数当中是不显示布局的。应写在oncreate()方法中
@@ -58,6 +60,7 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements View.
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.saveInstanceState = savedInstanceState;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // getWindow().setFlags(WindowManager.LayoutParams.TYPE_STATUS_BAR, WindowManager.LayoutParams.TYPE_STATUS_BAR);
         setContentView(R.layout.activity_base);
@@ -349,8 +352,11 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements View.
         startActivity(intent);
     }*/
 
-   /* *//**
+   /* */
+
+    /**
      * 跳转到PhotoViewActivity
+     *
      * @param anchorImageView
      *//*
     public void jumpToPhotoViewActivity(ImageView anchorImageView) {
@@ -358,6 +364,9 @@ public abstract class AbsBaseActivity extends AppCompatActivity implements View.
         intent.putExtra("bitmap", ImageUtils.drawableToBitmap(anchorImageView.getDrawable()));
         startActivity(intent);
     }*/
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        OkHttpUtils.getInstance().cancelTag(this);
+    }
 }

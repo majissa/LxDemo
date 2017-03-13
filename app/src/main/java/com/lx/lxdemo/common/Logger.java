@@ -1,7 +1,5 @@
 package com.lx.lxdemo.common;
 
-import android.util.Log;
-
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +38,9 @@ public class Logger {
      * 结果：只有当前这个手机TAG为Lixiang的标志都可以显示了，即返回回true（如果重启或者换一部手机将不显示）。
      * 注意：跟BuildConfig.DEBUG还是不同的，此方法打包发布后仍然是可以显示。只是除了开发者的手机不能显示。
      */
-    private final static boolean isDbug = Log.isLoggable(TAG, Log.DEBUG);
+//    private final static boolean isDbug = Log.isLoggable(TAG, Log.DEBUG);
+
+    private final static boolean isDbug = true;
 
     /**
      * Send a DEBUG log message.

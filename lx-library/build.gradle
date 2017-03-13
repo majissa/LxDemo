@@ -48,6 +48,4 @@ dependencies {
     compile project(':pre-lollipop-activity-transition')
     compile 'io.reactivex.rxjava2:rxjava:2.0.4'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
-    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.1@aar'
 }

@@ -4,9 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.lx.lxdemo.view.AddViewLinearLayout
-        android:id="@+id/addViewLinearLayout"
+    <com.lx.lxlibrary.view.FlowLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.lx.lxdemo.view.AddViewLinearLayout>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_c5_stroke"
+            android:text="@string/permission_to_apply_for_a_call" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_c5_stroke"
+            android:text="@string/permission_to_apply_for_a_call" />
+
+    </com.lx.lxlibrary.view.FlowLayout>
 
 </LinearLayout>

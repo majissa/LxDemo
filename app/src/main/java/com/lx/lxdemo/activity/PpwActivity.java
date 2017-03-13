@@ -1,5 +1,8 @@
 package com.lx.lxdemo.activity;
 
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -7,9 +10,15 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 
 import com.lx.lxdemo.R;
-import com.lx.lxlibrary.activity.BaseActivity;
+import com.lx.lxdemo.base.JsonCallback;
+import com.lx.lxdemo.bean.NewsBean;
 import com.lx.lxdemo.common.L;
 import com.lx.lxdemo.common.Logger;
+import com.lx.lxlibrary.activity.BaseActivity;
+import com.lzy.okhttputils.OkHttpUtils;
+
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * 创建人：LX
@@ -22,6 +31,8 @@ public class PpwActivity extends BaseActivity {
     private Button btn_02;
     private Button btn_03;
     private Button btn_04;
+    private static String BASE_URL ="http://39.129.0.75:8899/NetApp/CstService.asmx";
+
 
     @Override
     protected int inflateLayoutId() {
@@ -35,7 +46,7 @@ public class PpwActivity extends BaseActivity {
         btn_03 = (Button) view.findViewById(R.id.btn_03);
         btn_04 = (Button) view.findViewById(R.id.btn_04);
         ppwView = LayoutInflater.from(this).inflate(R.layout.ppw, null);
-        Logger.d("PpwActivity","TEST_PpwActivity");
+        Logger.d("PpwActivity", "TEST_PpwActivity");
     }
 
     @Override
@@ -48,7 +59,12 @@ public class PpwActivity extends BaseActivity {
 
     @Override
     protected void initValue() {
+        if (saveInstanceState != null) {
+            String saveInstance = saveInstanceState.getString("save");
+            Logger.dLi(saveInstance);
+        }
         setTitle(R.string.custom_popupwindow);
+        requestUser();
         int width = btn_01.getWidth();
         int height = btn_01.getHeight();
         L.dLi("btn_01的宽度：" + width);
@@ -84,6 +100,29 @@ public class PpwActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (saveInstanceState != null) {
+            String saveInstance = saveInstanceState.getString("save");
+            Logger.dLi(saveInstance);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("save", "lixiang");
+    }
+
+    /**
+     * @param outState           activity被销毁的试试保存的数据
+     * @param outPersistentState 在手机断点的时候保存数据的bundle
+     */
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
 
     private void testPopWindow() {
         PopupWindow popupWindow = new PopupWindow();
@@ -103,5 +142,28 @@ public class PpwActivity extends BaseActivity {
     private void testPopWindow(View view, int width, int height) {
         PopupWindow popupWindow = new PopupWindow(width, height);
         popupWindow.showAsDropDown(btn_02);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        com.lx.lxlibrary.log.Logger.dLi("ondestroy");
+    }
+
+    private void requestUser() {
+        OkHttpUtils.get(BASE_URL)
+                .tag(this)
+                .params("p0","User_Cst_GetUsersByMobilePhone")
+                .params("p1","15659164002")
+                .execute(new JsonCallback<NewsBean>(context, NewsBean.class) {
+                    @Override
+                    public void onResponse(boolean isFromCache, NewsBean commonBean, Request request, @Nullable Response response) {
+//                                        if (commonBean.getCodeState() == 1) {
+//
+//                                        } else {
+//                                            PopUtil.toast(context, commonBean.getMessage());
+//                                        }
+                    }
+                });
     }
 }
